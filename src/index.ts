@@ -13,7 +13,7 @@ const cors = require('cors');
 
 // Configuração do CORS para permitir o domínio do Expo Snack
 const corsOptions = {
-    origin: 'https://snack.expo.dev',
+    origin: 'https://snack-web-player.s3.us-west-1.amazonaws.com',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 };
