@@ -4,5 +4,5 @@ node_modules/
 build/
 tmp/
 temp/
-./tarefadb.sql
-./package-lock.json
+tarefadb.sql
+package-lock.json
