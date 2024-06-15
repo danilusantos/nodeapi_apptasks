@@ -1,7 +1,6 @@
 import 'reflect-metadata';
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
-
 import { AppDataSource } from './data-source';
 import routes from './routes';
 
@@ -9,6 +8,13 @@ AppDataSource.initialize();
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+const cors = require('cors');
+app.use(cors({
+    origin: 'https://snack.expo.dev',  // ou o endereço do seu aplicativo React Native
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Métodos permitidos
+    allowedHeaders: ['Content-Type', 'Authorization'],  // Cabeçalhos permitidos
+}));
 
 app.use(bodyParser.json());
 
