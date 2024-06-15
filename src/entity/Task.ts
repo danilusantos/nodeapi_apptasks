@@ -18,13 +18,25 @@ export class Task {
   description: string;
 
   @Column({
-    default: false,
+    type: 'enum',
+    enum: ['pending', 'completed', 'cancelled'],
+    default: 'pending',
   })
-  finished: boolean;
+  status: string;
 
-  @CreateDateColumn()
-  create_at: Date;
+  @Column({
+    type: 'time',
+    nullable: true,
+  })
+  hour: string;
 
-  @UpdateDateColumn()
+  @CreateDateColumn({
+    default: Date.now()
+  })
+  created_at: Date;
+
+  @UpdateDateColumn({
+    default: Date.now()
+  })
   updated_at: Date;
 }
