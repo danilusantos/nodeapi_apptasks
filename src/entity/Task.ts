@@ -24,19 +24,18 @@ export class Task {
   })
   status: string;
 
+  @CreateDateColumn()
+  data: Date;
+
   @Column({
     type: 'time',
     nullable: true,
   })
   hour: string;
 
-  @CreateDateColumn({
-    default: Date.now()
-  })
+  @CreateDateColumn()
   created_at: Date;
 
-  @UpdateDateColumn({
-    default: Date.now()
-  })
+  @UpdateDateColumn()
   updated_at: Date;
 }
