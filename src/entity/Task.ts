@@ -25,13 +25,13 @@ export class Task {
   status: string;
 
   @CreateDateColumn()
-  data: Date;
+  deadlineDate: Date;
 
   @Column({
     type: 'time',
     nullable: true,
   })
-  hour: string;
+  deadlineHour: string;
 
   @CreateDateColumn()
   created_at: Date;
