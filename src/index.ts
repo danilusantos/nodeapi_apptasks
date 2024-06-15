@@ -10,11 +10,15 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const cors = require('cors');
-app.use(cors({
-    origin: 'https://snack.expo.dev',  // ou o endereço do seu aplicativo React Native
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Métodos permitidos
-    allowedHeaders: ['Content-Type', 'Authorization'],  // Cabeçalhos permitidos
-}));
+
+// Configuração do CORS para permitir o domínio do Expo Snack
+const corsOptions = {
+    origin: 'https://snack.expo.dev',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 
